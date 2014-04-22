@@ -14,11 +14,14 @@ import org.jbehave.tutorials.etsy.pages.PageFactory;
 import org.jbehave.tutorials.etsy.pages.SearchResults;
 import org.jbehave.tutorials.etsy.pages.Site;
 import org.jbehave.tutorials.etsy.pages.Treasury;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.hamcrest.Matchers.equalTo;
 
+@Component
 public class EtsyDotComSteps {
     
     private AdvancedSearch advancedSearch;
@@ -31,6 +34,7 @@ public class EtsyDotComSteps {
 
     private String justBought = "";
 
+    @Autowired
     public EtsyDotComSteps(PageFactory pageFactory){
         advancedSearch = pageFactory.newAdvancedSearch();
         home = pageFactory.newHome();
